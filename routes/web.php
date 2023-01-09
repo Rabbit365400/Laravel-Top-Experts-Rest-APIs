@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExpertsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::view('welcome','welcome');
+Route::view('apply_job/{job_id}/{applicant}','apply_job');
+Route::view('add_photo/{user_id}','add_photo');
+Route::post('post_cv',[ExpertsController::class,'post_cv']);
+Route::post('post_photo',[ExpertsController::class,'post_photo']);
